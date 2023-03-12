@@ -1,5 +1,6 @@
 import discord
 import asyncio
+import
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -46,5 +47,12 @@ async def on_message(message):
            await message.channel.send('The channel closed due to inactivity.')
         else:
            await message.channel.send('You have choose the Kindness hat!\nPlease input the message below:')
+
+responses = {}
+for i in range(2):
+    username = input("Enter your username: ")
+    user_response = input("Enter your response: ")
+    thisdict = {username.title():user_response}
+    responses.update(thisdict)
 
 client.run("MTA4MzI0MjE2OTg1MjI0NDEyMQ.GmBfs1.6LIeM23ReqpJBpv9fdzGb0lxXnIkYoRhKV5RGU")
