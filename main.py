@@ -34,17 +34,30 @@ async def on_message(message):
     if message.content == '$hello':
         await message.channel.send('Hello!')
     
-    if message.content == '$write':
-        await message.channel.send('Please choose the hat you want to contribute to:\n1. Kindness\n2. Fun')
+    if message.content == '$daily-activity':
+        await message.channel.send('Please choose the hat you want to contribute to (send the number):\n1. Kindness\n2. Fun')
 
-        def check(m):
-           return m.channel == message.channel and m.content == 'Kindness'
+        def check(m, m_user):
+           return m.channel == message.channel and m_user == message.author and m.content == '1'
 
         try:
-           msg = await client.wait_for('message', timeout=30.0, check=check)
+           msg, m_user = await client.wait_for('message', timeout=30.0, check=check)
         except asyncio.TimeoutError:
-           await message.channel.send('The channel closed due to inactivity.')
+           await message.channel.send('The channel is closed due to inactivity. Please restart by sending \'$daily-activity\'')
         else:
            await message.channel.send('You have choose the Kindness hat!\nPlease input the message below:')
+
+           def k_message(km, k_user):
+               return km.channel == message.channel and k_user == message.author
+           
+           try:
+               k_msg, k_user = await client.wait_for('message', timeout=30.0, check=k_message)
+           except asyncio.TimeoutError:
+               await message.channel.send('The channel is closed due to inactivity.')
+           else:
+               await message.channel.send('Success!')
+    else:
+        await message.channel.send('Welcome to That Hat!\nTo start daily-activity, send \'$daily-activity\'')
+        return
 
 client.run("MTA4MzI0MjE2OTg1MjI0NDEyMQ.GmBfs1.6LIeM23ReqpJBpv9fdzGb0lxXnIkYoRhKV5RGU")
