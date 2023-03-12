@@ -1,5 +1,6 @@
 import discord
 import asyncio
+import
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -47,6 +48,7 @@ async def on_message(message):
         else:
            await message.channel.send('You have choose the Kindness hat!\nPlease input the message below:')
 
+<<<<<<< HEAD
            def k_message(km, k_user):
                return km.channel == message.channel and k_user == message.author
            
@@ -61,3 +63,13 @@ async def on_message(message):
         return
 
 client.run("MTA4MzI0MjE2OTg1MjI0NDEyMQ.GmBfs1.6LIeM23ReqpJBpv9fdzGb0lxXnIkYoRhKV5RGU")
+=======
+responses = {}
+for i in range(2):
+    username = input("Enter your username: ")
+    user_response = input("Enter your response: ")
+    thisdict = {username.title():user_response}
+    responses.update(thisdict)
+
+client.run("MTA4MzI0MjE2OTg1MjI0NDEyMQ.GmBfs1.6LIeM23ReqpJBpv9fdzGb0lxXnIkYoRhKV5RGU")
+>>>>>>> 8e784c8188726e8351838830be8d7a7f255f90b2
