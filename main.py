@@ -79,6 +79,9 @@ async def on_message(message):
                     await message.channel.send('You have successfully thrown the message into the Kindness hat!\nNow it is time to draw from the Kindness hat.\nIf you like the message you can react to it with a thumbsup (in 60s)\nThe message you draw is:')
                     kmsg_id, kmsg_random = random.choice(
                         list(savedKMessage.items()))
+                    # while (kmsg_random.author == message.author):
+                    #     kmsg_id, kmsg_random = random.choice(
+                    #         list(savedKMessage.items()))
                     # combine = Save_ID(kmsg_id, kmsg_random)
                     await message.channel.send(kmsg_random.content)
 
@@ -90,9 +93,9 @@ async def on_message(message):
                     except asyncio.TimeoutError:
                         await message.channel.send('You have successfully completed the daily activity! Have a great day!')
                     else:
-                        await kmsg_random.author.send(f'Someone has liked your message {kmsg.content} in the Kindness hat!')
+                        await kmsg_random.author.send(f'Someone has liked your message {kmsg_random.content} in the Kindness hat!')
                         await message.channel.send('The sender of the message will receive your like!\nDo you want to start a conversation with the sender of the message? (send Yes or No in 60s)')
-                        
+
                         def k_start_conversation(ksc):
                             return ksc.channel == message.channel and ((ksc.content == 'Yes') | (ksc.content == 'No'))
 
@@ -102,7 +105,7 @@ async def on_message(message):
                             await message.channel.send('You have successfully completed the daily activity! Have a great day!')
                         else:
                             if (conversation_kmsg.content == 'Yes'):
-                                await kmsg_random.author.send(f'A person who liked your message {kmsg.content} in the Kindness hat would like to have a conversation with you!\nIf you agree to connect please add {message.author}')
+                                await kmsg_random.author.send(f'A person who liked your message {kmsg_random.content} in the Kindness hat would like to have a conversation with you!\nIf you agree to connect please add {message.author}')
                                 await message.channel.send('The message request is sent!\nA reminder: the conversation will only be started if the other people agree to connect.')
                                 await message.channel.send('You have successfully completed the daily activity! Have a great day!')
                             else:
@@ -122,6 +125,9 @@ async def on_message(message):
                     await message.channel.send('You have successfully thrown the message into the Fun hat!\nNow it is time to draw from the Fun hat.\nIf you like the message you can react to it with a thumbsup (in 60s)\nThe message you draw is:')
                     fmsg_id, fmsg_random = random.choice(
                         list(savedFMessage.items()))
+                    # while (fmsg_random.author == message.author):
+                    #     fmsg_id, fmsg_random = random.choice(
+                    #         list(savedFMessage.items()))
                     # combine = Save_ID(fmsg_id, fmsg_random)
                     await message.channel.send(fmsg_random.content)
 
@@ -133,9 +139,9 @@ async def on_message(message):
                     except asyncio.TimeoutError:
                         await message.channel.send('You have successfully completed the daily activity! Have a great day!')
                     else:
-                        await fmsg_random.author.send(f'Someone has liked your message {fmsg.content} in the Fun hat!')
+                        await fmsg_random.author.send(f'Someone has liked your message {fmsg_random.content} in the Fun hat!')
                         await message.channel.send('The sender of the message will receive your like!\nDo you want to start a conversation with the sender of the message? (send Yes or No in 60s)')
-                        
+
                         def f_start_conversation(fsc):
                             return fsc.channel == message.channel and ((fsc.content == 'Yes') | (fsc.content == 'No'))
 
@@ -145,7 +151,7 @@ async def on_message(message):
                             await message.channel.send('You have successfully completed the daily activity! Have a great day!')
                         else:
                             if (conversation_fmsg.content == 'Yes'):
-                                await fmsg_random.author.send(f'A person who liked your message {fmsg.content} in the Kindness hat would like to have a conversation with you!\nIf you agree to connect please add {message.author}')
+                                await fmsg_random.author.send(f'A person who liked your message {fmsg_random.content} in the Kindness hat would like to have a conversation with you!\nIf you agree to connect please add {message.author}')
                                 await message.channel.send('The message request is sent!\nA reminder: the conversation will only be started if the other people agree to connect.')
                                 await message.channel.send('You have successfully completed the daily activity! Have a great day!')
                             else:
