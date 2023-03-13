@@ -65,7 +65,7 @@ async def on_message(message):
             await message.channel.send('The channel is closed due to inactivity. Please restart by sending \'$daily-activity\'')
         else:
             if (msg.content == '1'):
-                await message.channel.send('You have choosen the Kindness hat!\nGive me your most inspirational quote:')
+                await message.channel.send('You have choosen the Kindness hat!\nGive me your most inspirational quote (5min):')
 
                 def k_message(km):
                     return km.channel == message.channel
@@ -108,7 +108,7 @@ async def on_message(message):
                             else:
                                 await message.channel.send('You have successfully completed the daily activity! Have a great day!')
             else:
-                await message.channel.send('You have choosen the Fun hat!\nGive me your best pickup line ;D :')
+                await message.channel.send('You have choosen the Fun hat!\nGive me your best pickup line ;D (5min):')
 
                 def f_message(fm):
                     return fm.channel == message.channel
