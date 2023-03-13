@@ -76,7 +76,7 @@ async def on_message(message):
                     await message.channel.send('The channel is closed due to inactivity. Please restart by sending \'$daily-activity\'')
                 else:
                     savedKMessage[kmsg.id] = kmsg
-                    await message.channel.send('You have successfully throw the message into the Kindness hat!\nNow it is time to draw from the Kindness hat.\nIf you like the message you can react to it with a thumbsup (in 60s)\nThe message you draw is:')
+                    await message.channel.send('You have successfully thrown the message into the Kindness hat!\nNow it is time to draw from the Kindness hat.\nIf you like the message you can react to it with a thumbsup (in 60s)\nThe message you draw is:')
                     kmsg_id, kmsg_random = random.choice(
                         list(savedKMessage.items()))
                     # combine = Save_ID(kmsg_id, kmsg_random)
@@ -119,7 +119,7 @@ async def on_message(message):
                     await message.channel.send('The channel is closed due to inactivity. Please restart by sending \'$daily-activity\'')
                 else:
                     savedFMessage[fmsg.id] = fmsg
-                    await message.channel.send('You have successfully throw the message into the Fun hat!\nNow it is time to draw from the Fun hat.\nIf you like the message you can react to it with a thumbsup (in 60s)\nThe message you draw is:')
+                    await message.channel.send('You have successfully thrown the message into the Fun hat!\nNow it is time to draw from the Fun hat.\nIf you like the message you can react to it with a thumbsup (in 60s)\nThe message you draw is:')
                     fmsg_id, fmsg_random = random.choice(
                         list(savedFMessage.items()))
                     # combine = Save_ID(fmsg_id, fmsg_random)
