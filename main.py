@@ -57,7 +57,7 @@ async def on_message(message):
         await message.channel.send('Please choose the hat you want to contribute to (send the number):\n1. Kindness\n2. Fun')
 
         def check(m):
-            return m.channel == message.channel and ((m.content == '1') | (m.content == '2'))
+            return m.channel == message.channel and ((m.content == '1') | (m.content == '2')) and m.author == message.author
 
         try:
             msg = await client.wait_for('message', timeout=60.0, check=check)
@@ -97,7 +97,7 @@ async def on_message(message):
                         await message.channel.send('The sender of the message will receive your like!\nDo you want to start a conversation with the sender of the message? (send Yes or No in 60s)')
 
                         def k_start_conversation(ksc):
-                            return ksc.channel == message.channel and ((ksc.content == 'Yes') | (ksc.content == 'No'))
+                            return ksc.channel == message.channel and ((ksc.content == 'Yes') | (ksc.content == 'No')) and ksc.author == message.author
 
                         try:
                             conversation_kmsg = await client.wait_for('message', timeout=60.0, check=k_start_conversation)
@@ -143,7 +143,7 @@ async def on_message(message):
                         await message.channel.send('The sender of the message will receive your like!\nDo you want to start a conversation with the sender of the message? (send Yes or No in 60s)')
 
                         def f_start_conversation(fsc):
-                            return fsc.channel == message.channel and ((fsc.content == 'Yes') | (fsc.content == 'No'))
+                            return fsc.channel == message.channel and ((fsc.content == 'Yes') | (fsc.content == 'No')) and fsc.author == message.author
 
                         try:
                             conversation_fmsg = await client.wait_for('message', timeout=60.0, check=f_start_conversation)
