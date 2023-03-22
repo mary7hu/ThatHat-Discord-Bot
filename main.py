@@ -157,5 +157,4 @@ async def on_message(message):
                             else:
                                 await message.channel.send('You have successfully completed the daily activity! Have a great day!')
 
-client.run(
-    "MTA4MzI0MjE2OTg1MjI0NDEyMQ.GmBfs1.6LIeM23ReqpJBpv9fdzGb0lxXnIkYoRhKV5RGU")
+client.run("token")
