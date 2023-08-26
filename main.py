@@ -11,39 +11,9 @@ client = discord.Client(intents=intents)
 savedKMessage = {}
 savedFMessage = {}
 
-
-# class Save_ID:
-#     def __init__(self, message_id, message):
-#         self.message_id = message_id
-#         self.message = message
-
-#     def __str__(self):
-#         return f"{self.message_id}({self.message})"
-
-#     # def myfunc(self):
-#     #     print("Hello my name is " + self.message)
-
-
 @client.event
 async def on_ready():
     print(f'We have logged in as {client.user}')
-
-# @client.event
-# async def on_message(message):
-#     if message.content.startswith('$thumb'):
-#         channel = message.channel
-#         await channel.send('Send me that 👍 reaction, mate')
-
-#         def check(reaction, user):
-#             return user == message.author and str(reaction.emoji) == '👍'
-
-#         try:
-#             reaction, user = await client.wait_for('reaction_add', timeout=60.0, check=check)
-#         except asyncio.TimeoutError:
-#             await channel.send('👎')
-#         else:
-#             await channel.send('👍')
-
 
 @client.event
 async def on_message(message):
@@ -79,10 +49,6 @@ async def on_message(message):
                     await message.channel.send('You have successfully thrown the message into the Kindness hat!\nNow it is time to draw from the Kindness hat.\nIf you like the message you can react to it with a thumbsup (in 60s)\nThe message you draw is:')
                     kmsg_id, kmsg_random = random.choice(
                         list(savedKMessage.items()))
-                    # while (kmsg_random.author == message.author):
-                    #     kmsg_id, kmsg_random = random.choice(
-                    #         list(savedKMessage.items()))
-                    # combine = Save_ID(kmsg_id, kmsg_random)
                     await message.channel.send(kmsg_random.content)
 
                     def k_message_react(reaction, user):
@@ -125,10 +91,6 @@ async def on_message(message):
                     await message.channel.send('You have successfully thrown the message into the Fun hat!\nNow it is time to draw from the Fun hat.\nIf you like the message you can react to it with a thumbsup (in 60s)\nThe message you draw is:')
                     fmsg_id, fmsg_random = random.choice(
                         list(savedFMessage.items()))
-                    # while (fmsg_random.author == message.author):
-                    #     fmsg_id, fmsg_random = random.choice(
-                    #         list(savedFMessage.items()))
-                    # combine = Save_ID(fmsg_id, fmsg_random)
                     await message.channel.send(fmsg_random.content)
 
                     def f_message_react(reaction, user):
